@@ -1,3 +1,4 @@
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -177,4 +178,34 @@ media
 locale
 logs
 
-DS_Store
+
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+env/
+
+# OS files
+.DS_Store
+
+# Editor config
+.vscode/
+
+# Secrets and local DB
+*.env
+.env
+*.sqlite3
+db.sqlite3
+
+# Django migrations
+*/migrations/
+!*/migrations/__init__.py
+
+# Static/media
+/media/
+staticfiles/
