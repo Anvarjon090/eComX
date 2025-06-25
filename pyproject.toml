@@ -1,0 +1,83 @@
+[project]
+name = "voocommerce"
+version = "0.1.0"
+description = "VooCommerce - an ecommerce application built for teaching purposes"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "amqp==5.3.1",
+    "asgiref==3.8.1",
+    "billiard==4.2.1",
+    "celery==5.5.3",
+    "certifi==2025.4.26",
+    "charset-normalizer==3.4.2",
+    "click==8.2.1",
+    "click-didyoumean==0.3.1",
+    "click-plugins==1.1.1",
+    "click-repl==0.3.0",
+    "crispy-bootstrap4==2024.10",
+    "django==5.2.1",
+    "django-celery-beat>=2.8.1",
+    "django-crispy-forms==2.4",
+    "django-jazzmin==3.0.1",
+    "django-modeltranslation==0.19.15",
+    "django-rosetta==0.10.2",
+    "djangorestframework==3.16.0",
+    "djangorestframework-simplejwt==5.5.0",
+    "drf-yasg==1.21.10",
+    "flower==2.0.1",
+    "humanize==4.12.3",
+    "idna==3.10",
+    "inflection==0.5.1",
+    "kombu==5.5.4",
+    "packaging==25.0",
+    "pillow==11.2.1",
+    "polib==1.2.0",
+    "prometheus-client==0.22.1",
+    "prompt-toolkit==3.0.51",
+    "psycopg2-binary==2.9.10",
+    "pyjwt==2.9.0",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "pytest-django>=4.11.1",
+    "python-dateutil==2.9.0.post0",
+    "python-dotenv==1.1.0",
+    "pytz==2025.2",
+    "pyyaml==6.0.2",
+    "redis==6.2.0",
+    "requests==2.32.4",
+    "ruff>=0.11.13",
+    "six==1.17.0",
+    "sqlparse==0.5.3",
+    "tornado==6.5.1",
+    "tzdata==2025.2",
+    "uritemplate==4.1.1",
+    "urllib3==2.4.0",
+    "vine==5.1.0",
+    "wcwidth==0.2.13",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.settings.test"
+python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "--tb=short",
+    "--cov=myproject",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--reuse-db",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "api: marks tests as API tests",
+    "auth: marks tests as authentication related",
+    "db: marks tests that require database access",
+]
+testpaths = ["tests"]

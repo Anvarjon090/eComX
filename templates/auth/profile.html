@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}VooCommerce | Profile{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form action="{% url 'profile-update' %}" method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.first_name|as_crispy_field }}
+                        <script>
+                            document.getElementById("id_first_name").value = "{{request.user.first_name}}";
+                        </script>
+                    </div>
+                    <div class="col">
+                        {{ form.last_name|as_crispy_field }}
+                        <script>
+                            document.getElementById("id_last_name").value = "{{request.user.last_name}}";
+                        </script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.email|as_crispy_field }}
+                    <script>
+                        document.getElementById("id_email").value = "{{request.user.email}}";
+                    </script>
+                </div>
+                <div class="form-group">
+                    {{ form.phone_number|as_crispy_field }}
+                    <script>
+                        document.getElementById("id_phone_number").value = "{{request.user.phone_number}}";
+                    </script>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
