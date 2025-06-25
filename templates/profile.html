@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}VooCommerce | Profile{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card" style="max-width: 500px; margin: auto;">
+        <div class="card-header text-center">
+            <h2>{{ request.user.get_full_name|default:request.user.username }}</h2>
+        </div>
+        <div class="card-body text-center">
+            {% if request.user.avatar %}
+                <img src="{{ request.user.avatar.url }}" class="img-thumbnail mb-3" width="150">
+            {% else %}
+                <img src="{% static 'img/default-avatar.png' %}" class="img-thumbnail mb-3" width="150">
+            {% endif %}
+            <p><strong>Email:</strong> {{ request.user.email }}</p>
+            <p><strong>Telefon:</strong> {{ request.user.phone_number|default:"Kiritilmagan" }}</p>
+            <p><strong>Bio:</strong> {{ request.user.bio|default:"Bio yo‘q" }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
