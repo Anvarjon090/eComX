@@ -3,6 +3,7 @@ from django.contrib.auth import logout, login
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from .forms import ProfileUpdateForm
 
 
 @login_required
@@ -49,3 +50,15 @@ def register_view(request):
     else:
         form = UserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
+
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # kerakli sahifaga qayta yo'naltirish
+    else:
+        form = ProfileUpdateForm(instance=request.user)
+    return render(request, 'auth/profile.html', {'form': form})

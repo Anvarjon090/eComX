@@ -330,3 +330,12 @@ LOCALE_PATHS = [BASE_DIR / "locale"]
 CELERY_BROKER_URL = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis://localhost:6379/1"
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers.DatabaseScheduler"
+
+
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY")
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'profile-update'  # yoki istalgan sahifa
+LOGOUT_REDIRECT_URL = 'login'

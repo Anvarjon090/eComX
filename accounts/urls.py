@@ -71,7 +71,7 @@ apis = [
 ]
 
 template_urls = [
-     path('profile/update/', views.profile_update_view, name='profile-update'),
+    path("profile/update/", views.update_profile, name="profile-update"),
     path("template/register/", RegisterView.as_view(), name="register-template"),
     path("template/login/", LoginView.as_view(), name="login-template"),
     path("template/profile/", ProfileView.as_view(), name="profile-template"),
